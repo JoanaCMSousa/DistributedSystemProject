@@ -1,0 +1,12 @@
+gdb ./table-client
+
+return
+
+b <linha/funçao> //breakpoint
+r <variaveis> //run
+n //next
+
+
+bt //backtrace
+print
+s //step -- entrar na funçao

@@ -1,0 +1,16 @@
+Servidor:
+* Os alunos devem criar um novo módulo, definido no cabeçalho primary_backup.h.
+
+* Relativamente aos módulos atuais do sistema, no servidor o table_skel não vai sofrer alteração.
+
+* A maior parte da lógica a implementar neste projeto vai ser concretizada no table_server.
+
+* A distinção (inicial) entre primário e secundário é efetuada através dos argumentos passados ao programa. O primário deve receber como argumentos o seu porto e o endereço IP e porto do secundário. O secundário deve receber como argumento apenas o seu porto.
+
+
+
+
+modificaçoes ate ah data:
+* message - adicionados os oc_hello e oc_done
+* table_client - alterado o testInput para que mostre o novo exemplo de como fazer a chamada do client
+* network_client - network connect, adicionados comentarios para as alteraçoes ah receçao de dois novos ips e portos (fazer testes para o primario, e so depois criar as coisas para o secundario para testar a ligaçao, ou fazer os dois "ao mesmo tempo" e usar o primario na mesma e descartar o secundario?)

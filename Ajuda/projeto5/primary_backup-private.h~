@@ -1,0 +1,18 @@
+#ifndef _PRIMARY_BACKUP_PRIVATE_H
+#define _PRIMARY_BACKUP_PRIVATE_H
+
+
+#include "primary_backup.h"
+#include "message.h"
+#include "inet.h"
+
+struct server_t {
+	int sockfd; //Socket
+	char* address;
+	int port;
+	struct sockaddr_in server;
+	struct message_t* bu_msg;
+};
+
+
+#endif

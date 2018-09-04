@@ -1,0 +1,9 @@
+/*Grupo 05
+  Joana Sousa no47084, Joao Leal no46394,
+  Liliana Delgadinho no43334*/
+
+Como executar o programa?
+	Depois de realizado o comando make, basta realizar o comando ./table-client <ip primario>:<porta primario> <ip secundario>:<porta secundario> ou ./table-server <porta TCP> <dimensão da tabela> <ip secundario>:<porta secundario> (para o primario) ou ./table-server <porta TCP> <dimensão da tabela> (para o secundario) conforme pretendido. Os ficheiros .o serao todos colocados na diretoria obj, incluindo os .o criados pelos ficheiros de teste. Esta mesma diretoria (obj) sera entregue completamente vazia. Para eliminar todos os ficheiros .o, bem como os executaveis e os .txt (que se serao criados na diretoria principal) basta realizar o comando make clean.
+
+Outras informações:
+	Mais nada a acrescentar.

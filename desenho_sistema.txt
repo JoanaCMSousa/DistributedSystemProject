@@ -1,0 +1,33 @@
+Execução de um servidor quando arranca
+1. Mandar "hello" ao outro servidor - OC_HELLO
+2. Esperar por ligações
+	(a) Mensagem recebida de um cliente
+		1. Define-se como servidor primário
+		2. Processa mensagem de cliente
+			(a) Mensagem envolve atualização (PUT, UPDATE, DEL)
+				(a) Servidor secundário está UP
+					1. Manda mensagem de atualização (PUT, UPDATE, DEL) respetiva ao secundário
+						(a) Servidor secundário não responde
+							1. Marca servidor secundário como DOWN
+						(a) Servidor secundário responde
+							1. Continua
+				(b) Servidor secundário está DOWN
+					1. Continua
+			(b) Mensagem não envolve atualização (GET, SIZE)
+				1. Continua
+		3. Responde ao cliente
+	(b) Mensagem é um HELLO
+		1. Define o outro servidor como UP
+	(c) Mensagem recebida de um servidor
+		1. Define-se como servidor secundário
+		2. Processa mensagem do servidor primário
+		3. Responde ao servidor primário
+
+---------------------------------------
+
+Conversa entre servidores:
+
+1. PRIM -> SEC: OC_SERVREQ (Pedido vem de um servidor) **mensagem a ser criada**
+2. SEC -> PRIM: OK
+3. PRIM -> SEC: PEDIDO (igual ao do cliente)
+4. SEC -> PRIM: RESPOSTA (igual ao do cliente)

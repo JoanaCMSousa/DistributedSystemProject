@@ -1,0 +1,9 @@
+/*Grupo 05
+  Joana Sousa no47084, Joao Leal no46394,
+  Liliana Delgadinho no43334*/
+
+Como executar o programa?
+	Depois de realizar o comando make, basta realizar o comando ./test_data, ./test_entry ou ./test_list conforme pretendido. Os ficheiros .o serao todos colocados na diretoria obj incluindo os .o criados pelos ficheiros de teste. Esta mesma diretoria (obj) sera entregue completamente vazia. Para eliminar todos os ficheiros .o, bem como os executaveis (que se serao criados na diretoria principal) basta realizar o comando make clean.
+
+Outras informações:
+	Mais nada a acrescentar.

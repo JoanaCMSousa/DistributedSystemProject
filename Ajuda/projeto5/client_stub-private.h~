@@ -1,0 +1,17 @@
+#ifndef _CLIENT_STUB_PRIVATE_H
+#define _CLIENT_STUB_PRIVATE_H
+
+#include "client_stub.h"
+#include "message.h"
+#include "message-private.h"
+#include "network_client.h"
+
+
+struct rtable_t {
+	struct server_t *server; //sockfd sockaddr_in
+	
+	struct message_t *send;
+	struct message_t *receive;
+};
+
+#endif

@@ -1,0 +1,44 @@
+all: table_client table_server
+
+table_client: table_client.o client_stub.o network_client.o message.o entry.o data.o
+	gcc -o table_client table_client.o client_stub.o network_client.o message.o entry.o data.o
+	
+table_server: table_server.o table.o message.o list.o entry.o data.o table_skel.o primary_backup.o
+	gcc -o table_server table_server.o table.o message.o list.o entry.o data.o table_skel.o primary_backup.o -lpthread
+
+
+data.o: data.c data.h
+	gcc -c data.c -g
+
+entry.o: entry.c entry.h data.h
+	gcc -c entry.c -g
+	
+list.o: list.c list.h list-private.h data.h entry.h
+	gcc -c list.c -g
+
+table.o: table.c table.h table-private.h
+	gcc -c table.c -g
+
+message.o: message.c message.h message-private.h entry.h data.h
+	gcc -c message.c -g
+	
+network_client.o: network_client.c network_client.h network_client-private.h message.h
+	gcc -c -Wall network_client.c -g	
+
+client_stub.o: client_stub.c client_stub.h client_stub-private.h message.h message-private.h inet.h entry.h data.h network_client.h network_client-private.h
+	gcc -c -Wall client_stub.c -g	
+
+table_client.o: table_client.c client_stub.h client_stub-private.h inet.h message.h message-private.h entry.h data.h
+	gcc -c -Wall table_client.c -g
+	
+primary_backup.o: primary_backup.c primary_backup.h primary_backup-private.h message.h message-private.h inet.h
+	gcc -c -Wall primary_backup.c -g
+	
+table_skel.o: table_skel.c table_skel.h inet.h message.h message-private.h entry.h data.h
+	gcc -c -Wall table_skel.c -g
+
+table_server.o: table_server.c primary_backup.h primary_backup-private.h table_skel.h table.h table-private.h message.h message-private.h inet.h list.h entry.h data.h
+	gcc -c -Wall table_server.c -g -lpthread
+
+clean:
+	rm table_client table_server *.o
